@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leny <leny@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lpatin <lpatin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 09:27:46 by leny              #+#    #+#             */
-/*   Updated: 2026/10/06 09:28:23 by leny             ###   ########.fr       */
+/*   Updated: 2026/10/21 16:47:03 by lpatin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "whatever.hpp"
-int main( void ) {
+#include "whatever.hpp"
+
+int main(void) {
 	int a = 2;
 	int b = 3;
-	swap( a, b );
+	swap(a, b);
 	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
 	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;

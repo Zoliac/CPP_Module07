@@ -3,27 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leny <leny@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lpatin <lpatin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 09:33:02 by leny              #+#    #+#             */
-/*   Updated: 2026/10/06 09:35:48 by leny             ###   ########.fr       */
+/*   Updated: 2026/10/26 11:52:54 by lpatin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# pragma once
+#pragma once
 
 #include <iostream>
-
 #include <cstdlib>
 #include <ctime>
 
-
 template<typename T>
-class Array{
+class Array {
 	private:
-		T				*array;
-		unsigned int	_size;
-
+		T *array;
+		unsigned _size;
 	public:
 		Array() : array(NULL), _size(0) {
 			this->array = new T[this->_size];
@@ -34,14 +31,12 @@ class Array{
 		~Array() {
 			delete [] this->array;
 		}
-
 		Array(const Array &src) : _size(src.size()){
 			this->array = new T[src.size()];
 			for (unsigned int i = 0; i < src.size(); i++)
 				this->array[i] = src.array[i];
 		}
-
-		Array&	operator=(const Array &src){
+		Array& operator=(const Array &src){
 			if(this->array != NULL)
 				delete[] this->array;
 			if(src.size() != 0 && this != &src)
@@ -51,22 +46,19 @@ class Array{
 				for (unsigned int i = 0; i < src.size(); i++)
 					this->array[i] = src.array[i];
 			}
-			return(*this);	
+			return(*this);
 		}
-
-		T	&operator[](unsigned int index){
+		T &operator[](unsigned int index){
 			if (index >= this->_size)
 				throw std::exception();
 			return (array[index]);
 		}
-
-		const T	&operator[](unsigned int index) const{
+		const T &operator[](unsigned int index) const{
 			if (index >= this->_size)
 				throw std::exception();
 			return (array[index]);
 		}
-
-		unsigned int	size() const {
+		unsigned int size() const {
 			return (this->_size);
 		}
 };

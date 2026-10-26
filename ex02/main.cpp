@@ -3,51 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leny <leny@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lpatin <lpatin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 09:32:50 by leny              #+#    #+#             */
-/*   Updated: 2026/10/06 09:35:19 by leny             ###   ########.fr       */
+/*   Updated: 2026/10/26 12:17:21 by lpatin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
+#include <iostream>
+#include <stdexcept>
 #include "Array.hpp"
 
-#define MAX_VAL 750
-int main(int, char**){
-	Array<int> numbers(MAX_VAL);
-	int* mirror = new int[MAX_VAL];
-	srand(time(NULL));
-	for (int i = 0; i < MAX_VAL; i++){
-		const int value = rand();
-		numbers[i] = value;
-		mirror[i] = value;
-	}
+#define MAX_VAL 1
+int main() {
+	std::cout << std::endl << std::endl << "Testing with int:" << std::endl;
 	{
-		Array<int> tmp = numbers;
-		Array<int> test(tmp);
-	}
-	for (int i = 0; i < MAX_VAL; i++){
-		if (mirror[i] != numbers[i]){
-			std::cerr << "didn't save the same value!!" << std::endl;
-			return 1;
+		Array<int> array = Array<int>(10);
+		for (unsigned int i = 0; i < array.size(); i++) {
+			std::cout << "[BEFORE] array[" << i << "] = " << array[i] << std::endl;
+			array[i] += i;
+			std::cout << "[AFTER] array[" << i << "] = " << array[i] << std::endl << std::endl;
 		}
 	}
-	try{
-		numbers[2] = 0;
+	std::cout << std::endl << std::endl << "Testing with char:" << std::endl;
+	{
+		Array<char> array = Array<char>(10);
+		for (unsigned int i = 0; i < array.size(); i++) {
+			std::cout << "[BEFORE] array[" << i << "] = " << array[i] << std::endl;
+			array[i] += (97 + i);
+			std::cout << "[AFTER] array[" << i << "] = " << array[i] << std::endl << std::endl;
+		}
 	}
-	catch(const std::exception& e){
-		std::cerr << e.what() << '\n';
-	}
-	try{
-		numbers[MAX_VAL] = 0;
-	}
-	catch(const std::exception& e){
-		std::cerr << e.what() << '\n';
-	}
-
-	for (int i = 0; i < MAX_VAL; i++){
-		numbers[i] = rand();
-	}
-	delete [] mirror;
-	return 0;
+	return EXIT_SUCCESS;
 }

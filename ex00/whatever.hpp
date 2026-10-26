@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leny <leny@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lpatin <lpatin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 09:28:41 by leny              #+#    #+#             */
-/*   Updated: 2026/10/06 09:28:59 by leny             ###   ########.fr       */
+/*   Updated: 2026/10/21 16:47:12 by lpatin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# pragma once
-
-# include <iostream>
+#pragma once
+#include <iostream>
 
 template<typename Type>
-void	swap(Type &a, Type &b)
-{
+void swap(Type &a, Type &b) {
 	Type tmp = a;
 
 	a = b;

@@ -6,7 +6,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 # CPPFLAGS += -fsanitize=address 
 # CPPFLAGS += -pedantic -g 
 
-NAME = Convert
+NAME = iter
 
 all: $(NAME)
 
